@@ -1,7 +1,13 @@
 <html>
 <head>
-    <title>Welcome!</title>
+    <title>Page 1</title>
   <style>
+  .grouped-text-container {
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+    </style>
+    <style>
     body {
       background-color: #111;
       color: white;
@@ -11,7 +17,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px;
+      padding: 50px;
     }
     img {
       width: 350px;
@@ -20,10 +26,13 @@
     .button {
       background: #6a3d3d;
       color: white;
-      padding: 10px 20px;
+      padding: 20px 80px;
       border: none;
-      border-radius: 20px;
+      border-radius: 40px;
       cursor: pointer;
+    }
+    .button:hover {
+      background: #b38a8a;
     }
   </style>
 </head>
@@ -33,13 +42,15 @@
       <img src="https://nicepage.com/html-templates/preview/creative-interior-solutions-6283234?device=desktop">
     </div>
     <div>
-      <h1>Welcome!</h1>
-      <p>
-        We embark on each design with a unique approach and fresh outlook,
-        delivering tailor-made interiors which reflect our clients’ personality,
-        lifestyle and values. Image from Freepik
-        <a href="https://www.freepik.com" style="color:#b38a8a;">Freepik</a>.
-      </p>
+       <h1>Welcome!</h1>
+      <div class="grouped-text-container">
+        <p>
+          We embark on each design with a unique approach and fresh outlook,
+          delivering tailor-made interiors which reflect our clients’ personality,
+          lifestyle and values. Image from
+          <a href="https://www.freepik.com" style="color:#b38a8a;">Freepik</a>.
+        </p>
+      </div>
       <button class="button">Portfolio</button>
     </div>
   </div>
