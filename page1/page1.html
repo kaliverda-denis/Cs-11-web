@@ -3,8 +3,15 @@
     <title>Page 1</title>
   <style>
   .grouped-text-container {
-    max-width: 600px;
+    max-width: 500px;
     margin-bottom: 20px;
+    margin-left: auto;    
+    margin-right: auto;    
+    /* text-align: center; */
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 17px;
+    line-height: 1.6;
   }
     </style>
     <style>
@@ -12,16 +19,24 @@
       background-color: #111;
       color: white;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
     .container {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 50px;
+      min-height: 100vh;
+        background: #fff;
+        gap: 60px;
+        padding: 60px 0 0 0;
     }
     img {
-      width: 350px;
+      width: 500px;
+      height: 655px;
       margin-right: 30px;
+      margin-top: 30px;    
+      margin-left: 30px;
     }
     .button {
       background: #6a3d3d;
@@ -30,6 +45,7 @@
       border: none;
       border-radius: 40px;
       cursor: pointer;
+      font-size: 20px;
     }
     .button:hover {                      
       background: #b38a8a;
@@ -42,7 +58,12 @@
       <img src="https://nicepage.com/html-templates/preview/creative-interior-solutions-6283234?device=desktop">
     </div>
     <div>
-       <h1>Welcome!</h1>
+      <style>
+h1 {
+  font-size: 55px;
+}
+      </style>
+      <h1>Welcome!</h1>
       <div class="grouped-text-container">
         <p>
           We embark on each design with a unique approach and fresh outlook,
