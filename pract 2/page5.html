@@ -1,0 +1,153 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b3834;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header a {
+            color: #ccc;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .course {
+            background-color: #1d2925;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+
+        }
+
+        .course img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .price {
+            color: #ff4b4b;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #ff4b4b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .learn-more {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Courses</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Images from 
+            <a href="#">Freepik</a>
+        </p>
+    </header>
+
+    <section class="courses">
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/english-teacher-pointing-whiteboard_23-2149156038.jpg" alt="">
+            <h3>English for Beginners</h3>
+            <p class="price">$25</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/student-learning-online.jpg" alt="">
+            <h3>Online Learning</h3>
+            <p class="price">$25</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/businesswoman-working-laptop.jpg" alt="">
+            <h3>English for Business</h3>
+            <p class="price">$45</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/student-studying-alone.jpg" alt="">
+            <h3>Self-study Courses</h3>
+            <p class="price">$17</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/woman-preparing-exam.jpg" alt="">
+            <h3>Exam Preparation</h3>
+            <p class="price">$20</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/girl-with-headphones.jpg" alt="">
+            <h3>Private Lessons</h3>
+            <p class="price">$22</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/group-learning-together.jpg" alt="">
+            <h3>Private Mini-Groups</h3>
+            <p class="price">$15</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+
+        <div class="course">
+            <img src="https://img.freepik.com/free-photo/happy-child-learning-online.jpg" alt="">
+            <h3>English for Kids</h3>
+            <p class="price">$17</p>
+            <p>Price per lesson</p>
+            <button>LEARN MORE</button>
+        </div>
+    </section>
+
+    <footer>
+        <button class="learn-more">LEARN MORE</button>
+    </footer>
+</body>
+</html>
