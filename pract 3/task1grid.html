@@ -1,0 +1,189 @@
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #2e294e;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      color: #333;
+      padding: 10px 60px;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: gray;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #a68cf1;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .card {
+      background: #3f3b6c;
+      border-radius: 15px;
+      width: 200px;
+      padding-bottom: 20px;
+    }
+
+    .card-header {
+      background: white;
+      color: #333;
+      border-radius: 10px;
+      margin: -20px 20px 20px 20px;
+      padding: 10px;
+    }
+
+    .card-header h3 {
+      margin: 5px 0;
+    }
+
+    .card-header h2 {
+      margin: 0;
+    }
+
+    .purple { background: #8c77e0; }
+    .green { background: #34c594; }
+    .blue { background: #3d93ff; }
+    .orange { background: #f19a4b; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .btn {
+      background: white;
+      color: #333;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">logo</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" style="color:#a68cf1;">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <h1>Premium Plans</h1>
+    <p>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+
+    <div class="plans">
+      <div class="card purple">
+        <div class="card-header">
+          <h3>Free</h3>
+          <h2>$0</h2>
+          <small>PER MONTH</small>
+        </div>
+        <ul>
+          <li>15 Users</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+          <li>Feature 4</li>
+        </ul>
+        <button class="btn">GET PLAN</button>
+      </div>
+
+      <div class="card green">
+        <div class="card-header">
+          <h3>Plus</h3>
+          <h2>$29</h2>
+          <small>PER MONTH</small>
+        </div>
+        <ul>
+          <li>15 Users</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+          <li>Feature 4</li>
+        </ul>
+        <button class="btn">GET PLAN</button>
+      </div>
+
+      <div class="card blue">
+        <div class="card-header">
+          <h3>Standart</h3>
+          <h2>$59</h2>
+          <small>PER MONTH</small>
+        </div>
+        <ul>
+          <li>15 Users</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+          <li>Feature 4</li>
+        </ul>
+        <button class="btn">GET PLAN</button>
+      </div>
+
+      <div class="card orange">
+        <div class="card-header">
+          <h3>Business</h3>
+          <h2>$79</h2>
+          <small>PER MONTH</small>
+        </div>
+        <ul>
+          <li>15 Users</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+          <li>Feature 4</li>
+        </ul>
+        <button class="btn">GET PLAN</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
