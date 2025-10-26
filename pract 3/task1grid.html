@@ -10,8 +10,8 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
       align-items: center;
       background: white;
       color: #333;
@@ -21,16 +21,24 @@
     .logo {
       font-weight: bold;
       color: gray;
+      justify-self: start;    /* Вздовж лівого краю */
+    }
+
+    nav {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 20px;
+      justify-content: end;    /* Вздовж правого краю */
+      grid-column: 3;
     }
 
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
+      text-decoration: none;  /* Вимкнути підкреслення */
       color: #333;
       font-weight: bold;
     }
 
-    nav a:hover {
+    nav a:hover {           
       color: #a68cf1;
     }
 
@@ -46,21 +54,27 @@
     p {
       color: #ccc;
       margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
 
     .plans {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       justify-items: center;
+      padding: 0 30px;
     }
 
     .card {
       background: #3f3b6c;
       border-radius: 15px;
-      width: 200px;
+      width: 220px;
       padding-bottom: 20px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      align-items: start;
     }
 
     .card-header {
@@ -102,6 +116,8 @@
       padding: 8px 20px;
       font-weight: bold;
       cursor: pointer;
+      margin-top: auto;
+      justify-self: center;
     }
 
     .btn:hover {
@@ -112,6 +128,9 @@
 <body>
   <header>
     <div class="logo">logo</div>
+
+    
+
     <nav>
       <a href="#">Home</a>
       <a href="#" style="color:#a68cf1;">About</a>
@@ -126,9 +145,9 @@
     <div class="plans">
       <div class="card purple">
         <div class="card-header">
-          <h3>Free</h3>
-          <h2>$0</h2>
-          <small>PER MONTH</small>
+          <h3 style="color:#a68cf1;">Free</h3>
+          <h2 style="color:#a68cf1;">$0</h2>
+          <small style="color:#a68cf1;">PER MONTH</small>
         </div>
         <ul>
           <li>15 Users</li>
@@ -136,14 +155,14 @@
           <li>Feature 3</li>
           <li>Feature 4</li>
         </ul>
-        <button class="btn">GET PLAN</button>
+        <button class="btn" style="color:#a68cf1;">GET PLAN</button>
       </div>
 
       <div class="card green">
         <div class="card-header">
-          <h3>Plus</h3>
-          <h2>$29</h2>
-          <small>PER MONTH</small>
+          <h3 style="color:green;">Plus</h3>
+          <h2 style="color:green;">$29</h2>
+          <small style="color:green;">PER MONTH</small>
         </div>
         <ul>
           <li>15 Users</li>
@@ -151,14 +170,14 @@
           <li>Feature 3</li>
           <li>Feature 4</li>
         </ul>
-        <button class="btn">GET PLAN</button>
+        <button class="btn" style="color:green;">GET PLAN</button>
       </div>
 
       <div class="card blue">
         <div class="card-header">
-          <h3>Standart</h3>
-          <h2>$59</h2>
-          <small>PER MONTH</small>
+          <h3 style="color:#3d93ff;">Standart</h3>
+          <h2 style="color:#3d93ff;">$59</h2>
+          <small style="color:#3d93ff;">PER MONTH</small>
         </div>
         <ul>
           <li>15 Users</li>
@@ -166,14 +185,14 @@
           <li>Feature 3</li>
           <li>Feature 4</li>
         </ul>
-        <button class="btn">GET PLAN</button>
+        <button class="btn" style="color:#3d93ff;">GET PLAN</button>
       </div>
 
       <div class="card orange">
         <div class="card-header">
-          <h3>Business</h3>
-          <h2>$79</h2>
-          <small>PER MONTH</small>
+          <h3 style="color:#f19a4b;">Business</h3>
+          <h2 style="color:#f19a4b;">$79</h2>
+          <small style="color:#f19a4b;">PER MONTH</small>
         </div>
         <ul>
           <li>15 Users</li>
@@ -181,7 +200,7 @@
           <li>Feature 3</li>
           <li>Feature 4</li>
         </ul>
-        <button class="btn">GET PLAN</button>
+        <button class="btn" style="color:#f19a4b;">GET PLAN</button>
       </div>
     </div>
   </section>
