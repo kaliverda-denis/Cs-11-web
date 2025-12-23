@@ -1,0 +1,94 @@
+<html>
+<head>
+  <title>Римські Числа</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #converter-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input {
+      font-size: 16px;
+      padding: 8px;
+    }
+    button {
+      font-size: 16px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      color: #007bff;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="converter-box">
+    <h2>Конвертер у Римські Числа</h2>
+    
+    <input type="number" id="numberInput" placeholder="Введіть число...">
+    
+    <button onclick="doConvert()">Конвертувати</button>
+    
+    <p id="result">-</p>
+  </div>
+
+  <script>
+    function doConvert() {
+      const inputElement = document.getElementById("numberInput");
+      const resultElement = document.getElementById("result");
+      const num = parseInt(inputElement.value);
+
+      if (isNaN(num) || num < 1 || num > 3999) {
+        resultElement.textContent = "Помилка!";
+      } else {
+        const roman = convertToRoman(num);
+        resultElement.textContent = roman;
+      }
+    }
+
+    function convertToRoman(num) {
+      const lookup = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+      };
+      
+      let romanResult = ""; 
+
+      for (let key in lookup) {
+        const value = lookup[key]; 
+        while (num >= value) {
+          romanResult += key; 
+          num -= value;        
+        }
+      }
+      
+      return romanResult;
+    }
+  </script>
+
+</body>
+</html>
