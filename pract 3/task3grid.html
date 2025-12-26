@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <style>
+            body {
+    overflow-x: hidden;
+    margin: 0;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container_1 {
+    height: 1000px;
+    justify-items: center;
+}
+
+.container {
+    width: clamp(720px, 100%, 1200px);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+}
+
+
+
+.block-top-down {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+}
+.block2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    
+}
+.image {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0;
+    position: relative;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+}
+
+.img1 {
+    top: 15%;
+    left: 25%;
+    height: 85%;
+    width: 75%;
+}
+.img3 {
+    top: 25%;
+    right: 20%;
+    height: 75%;
+    width: 80%;
+}
+.img6 {
+    bottom: 40%;
+    left: 20%;
+    height: 60%;
+    width: 80%;
+}
+.img8 {
+    bottom: 20%;
+    right: 40%;
+    height: 80%;
+    width: 60%;
+}
+
+.margin6 {
+    margin: 6px;
+}
+
+.container_2 {
+    height: fit-content;
+    justify-items: center;
+}
+
+.block-center {
+    width: 40%;
+    height: 320px;
+    padding: 30px;
+    margin: -690px auto 105px; 
+    align-content: center;
+    color: black;
+    background-color: white;
+    font-family: 'Noto Sans Regular';
+    text-align: center;
+    z-index: 1;
+     
+}
+
+.title {
+    font-size: 36px;
+    margin-top: 35px;
+}
+
+.description {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.button {
+    width: fit-content;
+    font-size: 16px;
+    color: white;
+    background-color: #f15048;
+    padding: 10px 30px;
+    margin: 30px auto 35px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #dddddd;
+    background-color: rgb(236, 26, 26);
+}
+            </style>
+    </head>
+
+    <body>
+        <div class="container_1">
+            <div class="container">
+                <div class="block-top-down block1">
+                    <div class="image margin6"><img class="img img1" src="https://images01.nicepage.com/64/a4/64a42f0d0ba1a81a186655a4e123988d.jpeg"></div>
+                    <div class="image margin6"><img class="img" src="https://images01.nicepage.com/31/ee/31eeeebcf208dbb4c9feeab14b4d8307.jpeg"></div>
+                    <div class="image margin6"><img class="img img3" src="https://images01.nicepage.com/f5/a1/f5a1d7165b77e8984682e59f3627c626.jpeg"></div>
+                </div>
+                <div class="block2">
+                    <div class="image margin6"><img class="img" src="https://images01.nicepage.com/c2/01/c2019167dd66aebefd76948301fb4487.jpeg"></div>
+                    <div class="image margin6"><img class="img" src="https://images01.nicepage.com/1a/21/1a21d1171d04f86c41c5076644adbd5c.jpeg"></div>
+                </div>
+                <div class="block-top-down block3">
+                    <div class="image margin6"><img class="img img6" src="https://images01.nicepage.com/2a/62/2a62684f28c4733c729d991f2e00bcda.jpeg"></div>
+                    <div class="image margin6"><img class="img" src="https://images01.nicepage.com/9e/e7/9ee77f676570b4bb75d95d4d83d8f0d4.jpeg"></div>
+                    <div class="image margin6"><img class="img img8" src="https://images01.nicepage.com/2e/19/2e19fdb9cb9ed273bc4ca0dacd49be2c.jpeg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container_2">
+            <div class="container">
+                <div class="block-center">
+                    <div class="title">
+                        It's Only Fashion
+                    </div>
+                    <div class="description">
+                        Sequins, sweeping necklines, big hair, dramatic eyes, a come-hither stare. Taking names, turning heads and setting trends. She's a brick house.
+                    </div>
+                    <div class="button">
+                        view all
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
