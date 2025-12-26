@@ -1,0 +1,212 @@
+<html>
+    <head>
+        <style>
+            body {
+    overflow-x: hidden;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container_1 {
+    height: 1000px;
+    justify-items: center;
+    position: relative;
+    z-index: 1;
+    margin: 50px 0;
+    
+}
+
+.container {
+    position: absolute;
+    width: clamp(720px, 100%, 1200px);
+    height: fit-content;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    height: 100%;
+    z-index: 1;
+}
+
+.title {
+    color: white;
+    font-size: 24px;
+    margin-right: 40px;
+    text-transform: capitalize;
+}
+
+.description {
+    font-size: 16px;
+    margin-right: 40px;
+    line-height: 2;
+}
+
+.description1 {
+    margin-top: 20px;
+}
+
+.button {
+    width: fit-content;
+    font-size: 14px;
+    letter-spacing: 3px;
+    padding: 12.5px 30px;
+    margin: 30px auto 0 0;
+    border: solid 2px black;
+    color: black;
+    border-color: black;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+}
+
+.block1 {
+    grid-row: 1 / 3;
+}
+
+.block2 {
+    grid-row: 3 / -1;
+}
+
+.block-left {
+    grid-column: 1 / 2;
+}
+
+.block-right {
+    grid-column: 2 / -1;
+}
+
+.block1.block-left {
+    box-sizing: border-box;
+    padding: 30px;
+    background-color: rgba(191, 160, 101, 0.9);
+    color: white;
+    align-content: center;
+}
+
+.block1.block-right {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.block1.block-right div {
+    background-color: transparent;
+}
+
+.text-big {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px;
+    color: #bfa065;
+    text-transform: uppercase;
+    font-size: 60px;
+    text-align: left;
+    align-content: center;
+    letter-spacing: 0px;
+    line-height: 1.2;
+}
+
+.block2.block-left {
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.block2.block-right {
+    box-sizing: border-box;
+    padding: 30px;
+    background-color: white;
+    color: black;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.img1 {
+    background-image: url('https://images01.nicepage.com/93/ca/93ca41f399f3196923c769da96fc2aec.jpeg')
+}
+
+.img2 {
+    background-image: url('https://images01.nicepage.com/d0/75/d07586f450baf06b5db84a6382f91981.jpeg')
+}
+
+.img3 {
+    background-image: url('https://images01.nicepage.com/74/42/7442a5ae603d27d1cf50ce8be906c2bd.jpeg')
+}
+
+.img4 {
+    background-image: url('https://images01.nicepage.com/80/f4/80f453473d2af41f179584713b791fd7.jpeg')
+}
+
+.background {
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images01.nicepage.com/40/ca/40ca0ee707da85a9ba8bdd65ada9f156.jpeg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: calc(66.66666667% + 65px);
+    top: calc(33.33333333% - 20px);
+    z-index: 0;
+    overflow: hidden;
+}
+
+.background .img {
+    width: 100%;
+    object-fit: cover;
+}
+        </style>
+    </head>
+
+    <body>
+        <div class="container_1">
+            <div class="container">
+                <div class="block1 block-left">
+                    <div class="title">
+                        Build your amazing website
+                    </div>
+                    <div class="description description1">
+                        Quisque non est velit. Phasellus ac enim facilisis, pulvinar turpis sit amet, faucibus erat. Aliquam ac ex consectetur, venenatis mi et, dignissim tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin faucibus bibendum felis ac ullamcorper. Quisque non pulvinar enim, blandit laoreet dolor. 
+                    </div>
+                </div>
+                <div class="block1 block-right">
+                    <div class="img img1 margin15"></div>
+                    <div class="img img2 margin15"></div>
+                    <div class="text-big margin15">We are creative agency</div>
+                    <div class="img img3 margin15"></div>
+                </div>
+                <div class="block2 block-left">
+                    <div class="img img4"></div>
+                </div>
+                <div class="block2 block-right">
+                    <div class="description">
+                        Morbi eros lorem, imperdiet a dictum ac, consectetur vel lacus. Aenean gravida posuere elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis lacinia et urna sit amet congue. Pellentesque vel leo a eros sollicitudin varius a ac lacus. Aliquam viverra laoreet aliquet.
+                    </div>
+                    <div class="button">
+                        Read more
+                    </div>
+                </div>
+            </div>
+            <div class="background">
+            </div>
+        </div>
+        
+    </body>
+</html>
