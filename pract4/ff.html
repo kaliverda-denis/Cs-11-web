@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Grid Final Integrated</title>
+    <style>
+        body { 
+            background-color: #f5f5f5; 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            justify-content: center; 
+        }
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr 1fr; 
+            gap: 15px; 
+            max-width: 1200px; 
+            width: 100%; 
+        }
+        
+        .card { 
+            background: white; 
+            border-radius: 28px; 
+            padding: 25px; 
+            display: flex; 
+            flex-direction: column; 
+            box-sizing: border-box; 
+            overflow: hidden; /* ЦЕ ОБРІЗАЄ КУТИ КАРТИНКИ */
+            position: relative; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        /* HERO BLOCK */
+        .hero-card { 
+            grid-column: span 2; 
+            flex-direction: row; 
+            align-items: flex-end;
+            min-height: 480px; 
+            padding-bottom: 35px; 
+        }
+        .hero-text { width: 40%; z-index: 3; }
+        .hero-text h2 { font-size: 30px; margin-bottom: 12px; }
+        .hero-text p { color: #666; font-size: 14px; line-height: 1.5; margin: 0; }
+
+        .phone-wrapper { width: 60%; height: 100%; position: relative; display: flex; justify-content: center; }
+        .phone-mockup { width: 260px; height: 600px; background: #eee; border: 5px solid #222; border-radius: 38px; position: absolute; top: 20px; z-index: 1; }
+
+        /* МЕСЕДЖІ */
+        .msg { position: absolute; padding: 14px 20px; border-radius: 18px; font-size: 13px; z-index: 2; box-shadow: 0 6px 15px rgba(0,0,0,0.1); max-width: 210px; font-weight: 500; }
+        .msg-black { background: #000; color: #fff; transform: rotate(-3deg); }
+        .msg-white { background: #fff; border: 1px solid #eee; transform: rotate(3deg); }
+        .m1 { top: 40px; left: -10px; }
+        .m2 { top: 105px; right: -15px; }
+        .m3 { top: 185px; left: -15px; }
+        .m4 { top: 260px; right: -15px; }
+
+        /* ПРАВА КОЛОНКА */
+        .right-column { grid-column: 3; grid-row: 1 / 3; display: flex; flex-direction: column; gap: 15px; }
+        .right-column .card { flex: 1; }
+
+        /* === ВИПРАВЛЕНИЙ БЛОК ДЛЯ ХМАР === */
+        .conversion-card { 
+            /* Основні налаштування */
+            color: white; 
+            text-align: left; 
+            justify-content: space-between; 
+            
+            /* Налаштування фону */
+            background-color: #333; /* Резервний колір, якщо картинка не знайдена */
+            background-size: cover;      /* Розтягує картинку на весь блок */
+            background-position: center;  /* Центрує зображення */
+            background-repeat: no-repeat; /* Не повторює зображення */
+            
+            /* Тінь для тексту, щоб читався на білих хмарах */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+            
+            min-height: 250px; /* Гарантована висота */
+        }
+        
+        .conversion-card h1 { font-size: 56px; margin: 0; position: relative; z-index: 2; } 
+        .conversion-content { margin-top: auto; position: relative; z-index: 2; } 
+
+        .conversion-card h3 { font-size: 18px; margin: 0 0 10px 0; }
+        .conversion-card p { font-size: 13px; color: #eee; line-height: 1.4; margin: 0; }
+
+        /* Опціонально: легке затемнення картинки, щоб текст читався краще */
+        .conversion-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.2); /* 20% затемнення */
+            z-index: 1;
+        }
+
+        /* ІНШІ БЛОКИ */
+        .presence-card { justify-content: space-between; }
+        .gif-area { width: 100%; height: 120px; background: #f0f0f0; border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid #e5e5e5; overflow: hidden;}
+        
+        /* Щоб GIF теж заповнював блок без полів, якщо потрібно */
+        .gif-area img { width: 100%; height: 100%; object-fit: cover; }
+
+        .weeks-card { background: black; color: white; text-align: center; justify-content: center; height: 200px; }
+        .sales-card { height: 200px; justify-content: center; }
+
+        @media (max-width: 950px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .hero-card { flex-direction: column; align-items: center; text-align: center; height: auto; }
+            .hero-text { width: 100%; order: 2; padding: 20px 0; }
+            .phone-wrapper { order: 1; width: 100%; height: 400px; }
+            .phone-mockup { position: relative; top: 0; margin-bottom: -150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="card hero-card">
+            <div class="hero-text">
+                <h2>Effortless Collaboration</h2>
+                <p>Real-time updates and fast replies that make you feel like we're right there with you.</p>
+            </div>
+            <div class="phone-wrapper">
+                <div class="msg msg-black m1">Just saw the first draft - this is 🔥🔥🔥</div>
+                <div class="msg msg-white m2">Yes! So glad you like it. Want me to prep a second direction too?</div>
+                <div class="msg msg-black m3">That would be amazing. You're killing it.</div>
+                <div class="msg msg-white m4">Already on it. You'll have it by tomorrow afternoon.</div>
+                <div class="phone-mockup"></div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="card conversion-card" style="background-image: url('D:/web/pract4/clouds-bg.png')">
+                <h1>+85%</h1>
+                <div class="conversion-content">
+                    <h3>Higher Conversion Rates</h3>
+                    <p>Designs and content that keep people clicking, scrolling, and sharing.</p>
+                </div>
+            </div>
+
+            <div class="card presence-card">
+                <div>
+                    <h3 style="margin:0;">Stronger Presence</h3>
+                    <p style="color: #666; font-size: 13px; margin-top: 5px;">Rank higher, get found faster, and stay top-of-mind.</p>
+                </div>
+                <div class="gif-area">
+                    <img src="D:/web/pract4/task_2.gif" alt="Task 2 GIF">
+                </div>
+            </div>
+        </div>
+
+        <div class="card weeks-card">
+            <p style="opacity: 0.7; font-size: 13px;">Projects launched in</p>
+            <h1 style="font-size: 42px; margin: 10px 0;">3 weeks</h1>
+        </div>
+
+        <div class="card sales-card">
+            <h3>Increased Sales</h3>
+            <p style="color: #666; font-size: 14px; margin: 0;">Clear messaging and conversion design.</p>
+        </div>
+    </div>
+
+</body>
+</html>
