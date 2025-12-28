@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bento Grid Final Integrated</title>
     <style>
         body { 
             background-color: #f5f5f5; 
@@ -66,8 +62,7 @@
         .phone-mockup { 
             width: 260px; 
             height: 600px; 
-            background: #eee; 
-            border: 5px solid #222; 
+            background: transparent; 
             border-radius: 38px; 
             position: absolute; 
             top: 20px; 
@@ -152,21 +147,139 @@
         }
 
         /* ІНШІ БЛОКИ */
-        .presence-card { justify-content: space-between; }
-        .gif-area { width: 100%; height: 120px; background: #f0f0f0; border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid #e5e5e5; overflow: hidden;}
-        
-        .gif-area img { width: 100%; height: 100%; object-fit: cover; }
+        .presence-card { 
+            justify-content: space-between; 
+        }
+        .gif-area {
+            width: 100%; 
+            height: 250px; 
+            border-radius: 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+        }
 
-        .weeks-card { background: black; color: white; text-align: center; justify-content: center; height: 200px; }
-        .sales-card { height: 200px; justify-content: center; }
+        .gif-area img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        .weeks-card { 
+            background: black; 
+            color: white; 
+            text-align: center; 
+            justify-content: center; 
+            height: 200px; 
+        }
+        .sales-card { 
+            height: 200px; 
+            justify-content: center; 
+        }
 
         @media (max-width: 950px) {
             .grid-container { grid-template-columns: 1fr; }
-            .hero-card { flex-direction: column; align-items: center; text-align: center; height: auto; }
-            .hero-text { width: 100%; order: 2; padding: 20px 0; }
-            .phone-wrapper { order: 1; width: 100%; height: 400px; }
-            .phone-mockup { position: relative; top: 0; margin-bottom: -150px; }
+            .hero-card { flex-direction: column; 
+                align-items: center; 
+                text-align: center; 
+                height: auto; 
+            }
+            .hero-text { 
+                width: 100%; 
+                order: 2; 
+                padding: 20px 0; 
+            }
+            .phone-wrapper { 
+                order: 1; 
+                width: 100%; 
+                height: 400px; 
+            }
+            .phone-mockup { 
+                position: relative; 
+                top: 0; 
+                margin-bottom: -150px; 
+            }
         }
+        .animated-bubbles {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #111; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+}
+        .bubble {
+            position: absolute;
+            background: #222;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            animation: float 4s ease-in-out infinite;
+}
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(var(--rot)); }
+            50% { transform: translateY(-10px) rotate(var(--rot)); }
+        }
+        .b1 { top: 15%; left: 5%;  --rot: -5deg;  animation-delay: 0s; }
+        .b2 { top: 10%; right: 5%; --rot: 8deg;   animation-delay: 0.5s; }
+        .b3 { top: 40%; left: 15%; --rot: -3deg;  animation-delay: 1s; font-size: 18px; padding: 12px 24px; } 
+        .b4 { bottom: 15%; left: 8%; --rot: 5deg;   animation-delay: 1.5s; }
+        .b5 { bottom: 10%; right: 10%; --rot: -8deg; animation-delay: 2s; }
+       
+
+
+                            /* ВИПРАВЛЕННЯ ДЛЯ АДАПТИВНОСТІ */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 15px;
+    width: 100%;
+}
+
+
+@media (max-width: 1100px) {
+    .hero-card {
+        grid-column: span 1; 
+        flex-direction: column;
+        height: auto;
+        min-height: unset;
+    }
+    .hero-text, .phone-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .right-column {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .card {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 200px; 
+    }
+    .phone-mockup {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        top: 0;
+    }
+} 
     </style>
 </head>
 <body>
@@ -182,7 +295,7 @@
                 <div class="msg msg-white m2">Yes! So glad you like it. Want me to prep a second direction too?</div>
                 <div class="msg msg-black m3">That would be amazing. You're killing it.</div>
                 <div class="msg msg-white m4">Already on it. You'll have it by tomorrow afternoon.</div>
-                <div class="phone-mockup"></div>
+                <div class="phone-mockup" style="background-image: url('D:/web/pract4/mobile-bg.png'); width: 380px;"></div>
             </div>
         </div>
 
@@ -198,22 +311,30 @@
             <div class="card presence-card">
                 <div>
                     <h3 style="margin:0;">Stronger Presence</h3>
-                    <p style="color: #666; font-size: 13px; margin-top: 5px;">Rank higher, get found faster, and stay top-of-mind.</p>
+                    <p style="color: #666; 
+                    font-size: 13px; 
+                    margin-top: 5px;">Rank higher, get found faster, and stay top-of-mind.</p>
                 </div>
                 <div class="gif-area">
-                    <img src="D:/web/pract4/task_2.gif" alt="Task 2 GIF">
+                    <div class="animated-bubbles">
+                        <div class="bubble b1">+3k Downloads</div>
+                        <div class="bubble b2">+200 Countries</div>
+                        <div class="bubble b3">+30k Followers</div>
+                        <div class="bubble b4">+240k Likes</div>
+                        <div class="bubble b5">+1M Impressions</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card weeks-card">
-            <p style="opacity: 0.7; font-size: 13px;">Projects launched in</p>
+            <p style="opacity: 0.7; font-size: 13px;">Projects launched in as little as</p>
             <h1 style="font-size: 42px; margin: 10px 0;">3 weeks</h1>
         </div>
 
         <div class="card sales-card">
-            <h3>Increased Sales</h3>
-            <p style="color: #666; font-size: 14px; margin: 0;">Clear messaging and conversion design.</p>
+            <h3 style="line-height:4;">Increased Sales</h3>
+            <p style="color: #666; font-size: 14px; margin: 0;">Clear messaging and conversion-focused design that drives real revenue.</p>
         </div>
     </div>
 
