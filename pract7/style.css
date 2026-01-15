@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+}
+
+/* --- HEADER --- */
+header {
+    padding: 20px 10%;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.logo-section h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: normal;
+    color: #444;
+}
+
+.logo-section h1 span {
+    color: #888;
+}
+
+.logo-section p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.user-section {
+    text-align: right;
+    width: 250px;
+}
+
+.top-links {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.top-links a {
+    text-decoration: none;
+    color: #888;
+    margin-left: 10px;
+}
+
+/* Чорний блок кошика як на скріншоті */
+.cart-box {
+    background-color: #444;
+    color: white;
+    padding: 10px 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.cart-icon {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Пошук */
+.search-bar input {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    color: #666;
+}
+
+/* --- MAIN CONTENT --- */
+.container {
+    padding: 20px 10%;
+}
+
+h2.section-title {
+    font-weight: normal;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee; /* тонка лінія під заголовком, якщо треба */
+    padding-bottom: 10px;
+}
+
+/* Фільтри (спрощено, щоб не ламати дизайн) */
+.filters-bar {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* --- GRID --- */
+.products-grid {
+    display: grid;
+    /* На скріншоті 6 товарів у ряд. Робимо адаптивно */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+    gap: 30px;
+}
+
+/* --- CARD DESIGN --- */
+.product-card {
+    position: relative;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.image-area {
+    width: 100%;
+    height: 160px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-area img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Ярлик SALE (червоний трикутник/стрічка) */
+.sale-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff4d4d;
+    color: white;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.product-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+    line-height: 1.4;
+    height: 36px; /* фіксована висота заголовка */
+    overflow: hidden;
+}
+
+.price-box {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+.price-new {
+    color: #ff4d4d; /* Червона ціна */
+    font-weight: bold;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 13px;
+    margin-left: 8px;
+    font-weight: normal;
+}
+
+.btn-add {
+    margin-top: 5px;
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    background: #eee;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.btn-add:hover { background: #ddd; }
+.btn-add:disabled { color: #aaa; cursor: default; }
+
+/* MODAL */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 999;
+    display: flex; justify-content: center; align-items: center;
+}
+.modal-body {
+    background: white; padding: 20px; width: 400px;
+}
+.cart-item-row {
+    display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;
+}

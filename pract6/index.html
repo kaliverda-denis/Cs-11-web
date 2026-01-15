@@ -1,0 +1,96 @@
+<head>
+    <script src="./script.js"></script>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="loader">
+        <div class="lds-dual-ring"></div>
+    </div>
+    <header>
+        <div class="wrapper">
+            <div class="cart">
+                <div>
+                    <img src="./imgs/shopping-cart.png" />
+                    <div id="cart-counter" class="hide"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="cart-view-wrapper hide">
+        <div class="blur"></div>
+        <div id="cart-view">
+            <div class="title">
+                <div>Cart view</div>
+                <img id="cart-view-close" src="./imgs/close.png" />
+            </div>
+            <div class="cart-view-list"></div>
+            <div class="total-price">
+                Total price:
+                <span id="total-price-value">99999.9</span>
+            </div>
+        </div>
+    </div>
+    <div class="items-container">
+        <div class="wrapper">
+            <div class="filters">
+                <div class="search">
+                    Search: <input id="search-input" type="text" />
+                </div>
+                <div class="price">
+                    Price:
+                    <input id="price-min" type="number" min="0" placeholder="min" />
+                    -
+                    <input id="price-max" type="number" max="99999" placeholder="max" />
+                </div>
+                <div class="category">
+                    Category:
+                    <select>
+                        <option value="all" selected>All</option>
+                    </select>
+                </div>
+
+                <div class="rating">
+                    Rating:
+                    <div>
+                        <label for="ratingSelector-1">
+                            <input id="ratingSelector-1" type="radio" value="1" name="rating-selector">
+                            1+
+                        </label>
+                    </div>
+                    <div>
+                        <label for="ratingSelector-2">
+                            <input id="ratingSelector-2" type="radio" value="2" name="rating-selector">
+                            2+
+                        </label>
+                    </div>
+                    <div>
+                        <label for="ratingSelector-3">
+                            <input id="ratingSelector-3" type="radio" value="3" name="rating-selector">
+                            3+
+                        </label>
+                    </div>
+                    <div>
+                        <label for="ratingSelector-4">
+                            <input id="ratingSelector-4" type="radio" value="4" name="rating-selector">
+                            4+
+                        </label>
+                    </div>
+                    <div>
+                        <label for="ratingSelector-5">
+                            <input id="ratingSelector-5" type="radio" value="5" name="rating-selector">
+                            5
+                        </label>
+                    </div>
+                </div>
+                <div class="extra-functions">
+                    Extra functions:
+                    <div class="extra-functions-container">
+
+                    </div>
+                </div>
+            </div>
+            <div class="items"></div>
+        </div>
+    </div>
+</body>
