@@ -1,137 +1,158 @@
 const { useState, useEffect } = React;
 const initialData = [
-    { id: 1, name: "Arne Jacobsen Egg Chair blue", 
+    { 
+        id: 1, 
+        name: "Arne Jacobsen Egg Chair blue", 
         category: "Chairs", 
         price: 199.00, 
         oldPrice: 220.00, 
         rating: 5, 
         stock: 5, 
-        isSale: true,
-        imageUrl: "D:\web\pract7\imgs\arne_jacobsen_egg_chair_blue_1_medium.avif"
+        isSale: true, 
+        backgroundImage: url('D:\web\pract7\imgs\arne_jacobsen_egg_chair_blue_1_medium.avif')
     },
-    { id: 2, name: "Attractive round chair on low revolving", 
+    { 
+        id: 2, 
+        name: "Attractive round chair on low revolving", 
         category: "Chairs", 
         price: 60.00, 
         oldPrice: null, 
         rating: 4, 
         stock: 3, 
-        isSale: false,
-        imageUrl: "D:\web\pract7\imgs\attractive_round_chair_on_low_revolving_base_1_medium.avif"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Chair+2"
     },
-    { id: 3, name: "Avenue Six Roundabout Spring Green", 
+    { 
+        id: 3, 
+        name: "Avenue Six Roundabout Spring Green", 
         category: "Chairs", 
         price: 78.00, 
         oldPrice: null, 
         rating: 3, 
         stock: 2, 
-        isSale: false,
-        imageUrl: "D:\web\pract7\imgs\avenue_six_roundabout_spring_green_low_circle_lounger_1_medium.avif"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Chair+3"
     },
-    { id: 4, name: "CAMILLA Armchair", 
+    { 
+        id: 4, 
+        name: "CAMILLA Armchair", 
         category: "Chairs", 
         price: 469.00, 
         oldPrice: null, 
         rating: 5, 
         stock: 4, 
-        isSale: false,
-        imageUrl: "./img/chair4.jpg"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Chair+4"
     },
-    { id: 5, name: "Le Corbusier Armchair", 
+    { 
+        id: 5, 
+        name: "Le Corbusier Armchair", 
         category: "Chairs", 
         price: 399.00, 
         oldPrice: 500.00, 
         rating: 5, 
         stock: 1, 
-        isSale: true,
-        imageUrl: "./img/chair5.jpg"
+        isSale: true, 
+        imageUrl: "https://via.placeholder.com/300?text=Chair+5"
     },
-    { id: 6, name: "Le Corbusier LC7 Chair furniture", 
+    { 
+        id: 6, 
+        name: "Le Corbusier LC7 Chair furniture", 
         category: "Chairs", 
         price: 420.00, 
         oldPrice: null, 
         rating: 4, 
         stock: 6, 
-        isSale: false,
-        imageUrl: "./img/chair6.jpg"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Chair+6"
     },
-    { id: 7, name: "Mesa Modern Round Dining Table", 
+    { 
+        id: 7, 
+        name: "Mesa Modern Round Dining Table", 
         category: "Tables", 
         price: 265.00, 
         oldPrice: null, 
         rating: 5, 
         stock: 2, 
-        isSale: false,
-        imageUrl: "./img/table1.jpg"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Table+1"
     },
-    { id: 8, name: "Miss K Table Lamp by Flos", 
+    { 
+        id: 8, 
+        name: "Miss K Table Lamp by Flos", 
         category: "Lamps", 
         price: 170.00, 
         oldPrice: null, 
         rating: 4, 
         stock: 10, 
-        isSale: false,
-        imageUrl: "./img/lamp1.jpg"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Lamp+1"
     },
-    { id: 9, name: "Modern Contemporary Self Storage", 
+    { 
+        id: 9, 
+        name: "Modern Contemporary Self Storage", 
         category: "Tables", 
         price: 320.00, 
         oldPrice: 400.00, 
         rating: 3, 
         stock: 3, 
-        isSale: true,
-        imageUrl: "./img/table2.jpg"
+        isSale: true, 
+        imageUrl: "https://via.placeholder.com/300?text=Storage"
     },
-    { id: 10, name: "Modern Design Cardboard Wiggle", 
+    { 
+        id: 10, 
+        name: "Modern Design Cardboard Wiggle", 
         category: "Chairs", 
         price: 265.00, 
         oldPrice: null, 
         rating: 5, 
         stock: 0, 
-        isSale: false,
-        imageUrl: "./img/chair7.jpg"
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Wiggle"
     },
-    { id: 11, name: "Oksana Dining Table", 
-        category: "Tables", 
-        price: 265.00, 
-        oldPrice: null, 
-        rating: 5, 
-        stock: 0, 
-        isSale: false,
-        imageUrl: "./img/chair7.jpg"
-    },
-    { id: 12, name: "PK20 Easy Chair by Designer Poul Kjaerholm", 
+    { 
+        id: 11, 
+        name: "New Added Item Number 11", 
         category: "Chairs", 
-        price: 199.00, 
+        price: 150.00, 
         oldPrice: null, 
         rating: 5, 
-        stock: 0, 
-        isSale: false,
-        imageUrl: "./img/chair7.jpg"
+        stock: 5, 
+        isSale: false, 
+        imageUrl: "https://via.placeholder.com/300?text=Item+11"
+    },
+    { 
+        id: 12, 
+        name: "New Added Item Number 12", 
+        category: "Lamps", 
+        price: 99.00, 
+        oldPrice: 120.00, 
+        rating: 4, 
+        stock: 8, 
+        isSale: true, 
+        imageUrl: "https://via.placeholder.com/300?text=Item+12"
     }
 ];
 
 function App() {
-    // LocalStorage
     const [products, setProducts] = useState(() => {
-        const saved = localStorage.getItem('inventory_v2');
+        const saved = localStorage.getItem('inventory_v3');
         return saved ? JSON.parse(saved) : initialData;
     });
 
     const [cart, setCart] = useState(() => {
-        const saved = localStorage.getItem('cart_v2');
+        const saved = localStorage.getItem('cart_v3');
         return saved ? JSON.parse(saved) : [];
     });
 
     const [isCartOpen, setCartOpen] = useState(false);
     const [filterText, setFilterText] = useState("");
 
-    // Save
     useEffect(() => {
-        localStorage.setItem('inventory_v2', JSON.stringify(products));
-        localStorage.setItem('cart_v2', JSON.stringify(cart));
+        localStorage.setItem('inventory_v3', JSON.stringify(products));
+        localStorage.setItem('cart_v3', JSON.stringify(cart));
     }, [products, cart]);
 
-    // Logic
     const addToCart = (product) => {
         if (product.stock <= 0) return;
         
@@ -164,7 +185,6 @@ function App() {
     const cartCount = cart.reduce((acc, el) => acc + el.count, 0);
     const cartTotal = cart.reduce((acc, el) => acc + (el.price * el.count), 0);
 
-    // Фільтр по назві (для пошуку)
     const visibleProducts = products.filter(p => 
         p.name.toLowerCase().includes(filterText.toLowerCase())
     );
@@ -210,8 +230,7 @@ function App() {
                         <div key={p.id} className="product-card">
                             <div className="image-area">
                                 {p.isSale && <div className="sale-badge">SALE</div>}
-                                <span>Image</span> 
-                                {/* Сюди потім вставиш <img src={p.imageUrl} /> */}
+                                <img src={p.imageUrl} alt={p.name} />
                             </div>
                             
                             <div className="product-title">{p.name}</div>

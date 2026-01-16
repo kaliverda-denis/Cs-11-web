@@ -6,7 +6,6 @@ body {
     background-color: #fff;
 }
 
-/* --- HEADER --- */
 header {
     padding: 20px 10%;
     border-bottom: 1px solid #ddd;
@@ -48,8 +47,6 @@ header {
     color: #888;
     margin-left: 10px;
 }
-
-/* Чорний блок кошика як на скріншоті */
 .cart-box {
     background-color: #444;
     color: white;
@@ -65,8 +62,6 @@ header {
     font-size: 18px;
     margin-right: 10px;
 }
-
-/* Пошук */
 .search-bar input {
     width: 100%;
     padding: 6px;
@@ -75,7 +70,6 @@ header {
     color: #666;
 }
 
-/* --- MAIN CONTENT --- */
 .container {
     padding: 20px 10%;
 }
@@ -85,11 +79,11 @@ h2.section-title {
     font-size: 24px;
     color: #333;
     margin-bottom: 25px;
-    border-bottom: 1px solid #eee; /* тонка лінія під заголовком, якщо треба */
+    border-bottom: 1px solid #eee;
     padding-bottom: 10px;
 }
 
-/* Фільтри (спрощено, щоб не ламати дизайн) */
+
 .filters-bar {
     margin-bottom: 20px;
     padding: 10px;
@@ -97,16 +91,14 @@ h2.section-title {
     border: 1px solid #eee;
     font-size: 14px;
 }
-
-/* --- GRID --- */
 .products-grid {
     display: grid;
-    /* На скріншоті 6 товарів у ряд. Робимо адаптивно */
+
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
     gap: 30px;
 }
 
-/* --- CARD DESIGN --- */
+
 .product-card {
     position: relative;
     text-align: left;
@@ -131,7 +123,6 @@ h2.section-title {
     max-height: 100%;
 }
 
-/* Ярлик SALE (червоний трикутник/стрічка) */
 .sale-badge {
     position: absolute;
     top: 0;
@@ -149,7 +140,7 @@ h2.section-title {
     color: #333;
     margin: 5px 0;
     line-height: 1.4;
-    height: 36px; /* фіксована висота заголовка */
+    height: 36px; 
     overflow: hidden;
 }
 
@@ -160,7 +151,7 @@ h2.section-title {
 }
 
 .price-new {
-    color: #ff4d4d; /* Червона ціна */
+    color: #ff4d4d;
     font-weight: bold;
 }
 
@@ -184,7 +175,6 @@ h2.section-title {
 .btn-add:hover { background: #ddd; }
 .btn-add:disabled { color: #aaa; cursor: default; }
 
-/* MODAL */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.5); z-index: 999;
