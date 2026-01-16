@@ -9,7 +9,7 @@ const initialData = [
         rating: 5, 
         stock: 5, 
         isSale: true, 
-        backgroundImage: url('D:\web\pract7\imgs\arne_jacobsen_egg_chair_blue_1_medium.avif')
+        imageUrl: "https://via.placeholder.com/300?text=Chair+2"
     },
     { 
         id: 2, 
