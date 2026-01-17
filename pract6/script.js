@@ -1,192 +1,472 @@
-// Кошик тепер завантажується з LocalStorage при старті
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// Змінна для корзини
+const cart = []
 
-// Функція для оновлення лічильника на іконці кошика
-const updateCartBadge = () => {
+// Функція для збереження корзини в LocalStorage
+const saveCartToLS = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Оновлення лічильника на іконці корзини
+const updateCartCounterUI = () => {
     const cartCounter = document.querySelector('#cart-counter');
     const sum = cart.reduce((acc, cur) => acc + cur.count, 0);
-    
+
     if (sum > 0) {
         cartCounter.classList.remove('hide');
         cartCounter.textContent = sum > 9 ? "+9" : sum;
     } else {
         cartCounter.classList.add('hide');
     }
-};
+}
 
-// ЗАВДАННЯ 4: Збереження в LocalStorage
-const saveToLocalStorage = (data) => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    // Зберігаємо також поточний стан доступної кількості товарів
-    localStorage.setItem('inventory', JSON.stringify(data));
-};
-
-const addCart = (item, data) => {
-    const existedItem = cart.find(el => el.id == item.id);
+const addCart = (item) => {
+    const existedItem = cart.find(el => el.id == item.id)
     if (existedItem) {
-        existedItem.count += 1;
+        existedItem.count += 1
     } else {
         cart.push({ ...item, count: 1 });
     }
-    updateCartBadge();
-    saveToLocalStorage(data);
-};
+    
+    updateCartCounterUI();
+    saveCartToLS(); // Зберігаємо зміни
+}
 
-// ЗАВДАННЯ 1 та 2: Фільтрація за категорією та рейтингом
-const filterItems = (data, params) => {
-    const { searchText, priceMin, priceMax, category, rating, extraFunctions } = params;
+const createItem = (item) => {
+    const div = document.createElement('div')
+    div.classList.add('item');
+    div.setAttribute('item-id', item.id)
 
-    data.forEach(el => {
-        const itemNode = document.querySelector(`.item[item-id="${el.id}"]`);
-        let isVisible = true;
+    const image = document.createElement('div')
+    image.classList.add('item-image')
+    image.style = `--bgURL:url(${item.imageUrl})`
 
-        if (searchText && !el.name.toLowerCase().includes(searchText) && !el.shortDescription.toLowerCase().includes(searchText)) isVisible = false;
-        if (priceMin >= 0 && el.price < priceMin) isVisible = false;
-        if (priceMax >= 0 && el.price > priceMax) isVisible = false;
-        
-        // Фільтрація за категорією
-        if (category && category !== 'All' && el.category !== category) isVisible = false;
-        
-        // Фільтрація за рейтингом (мінімальний рейтинг)
-        if (rating && el.rating < rating) isVisible = false;
+    const title = document.createElement('div')
+    title.classList.add('item-title')
+    title.textContent = item.name
 
-        if (extraFunctions && extraFunctions.length) {
-            if (!extraFunctions.every(extra => el.extraFunctions.includes(extra))) isVisible = false;
-        }
+    const description = document.createElement('div')
+    description.classList.add('item-short-description')
+    description.textContent = item.shortDescription
 
-        isVisible ? itemNode.classList.remove('hide') : itemNode.classList.add('hide');
-    });
-};
+    const bottom = document.createElement('div')
+    bottom.classList.add('item-bottom')
 
-// ЗАВДАННЯ 3: Збільшення/зменшення кількості + Склад
-const createViewItem = (item, data) => {
-    const cartViewItem = document.createElement('div');
-    cartViewItem.classList.add('cart-view-item');
+    const rating = document.createElement('div')
+    rating.classList.add('item-rating')
+    rating.textContent = `Rating: ${item.rating}`
 
-    // ... (код створення Image, Name, Price як у вас)
-    const cartViewItemImage = document.createElement('div');
-    cartViewItemImage.classList.add('image');
-    cartViewItemImage.style = `--bgImg: url('${item.imageUrl}')`;
+    const availableCount = document.createElement('div')
+    availableCount.classList.add('item-available-count')
+    availableCount.textContent = `Count: ${item.availableCount}`
 
-    const cartViewItemName = document.createElement('div');
-    cartViewItemName.classList.add('name');
-    cartViewItemName.textContent = item.name;
+    const price = document.createElement('div')
+    price.classList.add('item-price')
+    price.textContent = `${item.price} ${item.currency}`
 
-    const cartViewItemPrice = document.createElement('div');
-    cartViewItemPrice.classList.add('price');
-    cartViewItemPrice.textContent = item.price;
-
-    const cartViewItemCount = document.createElement('div');
-    cartViewItemCount.classList.add('count');
-
-    const cartViewItemCountValue = document.createElement('div');
-    cartViewItemCountValue.classList.add('count-value');
-    cartViewItemCountValue.textContent = item.count;
-
-    const renderItem = data.find(el => el.id === item.id);
-
-    // Кнопка ЗМЕНШИТИ
-    const cartViewItemCountDec = document.createElement('div');
-    cartViewItemCountDec.classList.add('decrease-count');
-    cartViewItemCountDec.textContent = "-";
-    cartViewItemCountDec.addEventListener('click', () => {
-        if (item.count > 0) {
-            item.count--;
-            renderItem.availableCount++; // Повертаємо на склад
-            if (item.count === 0) {
-                cart.splice(cart.indexOf(item), 1);
-                cartViewItem.remove();
-            }
-            updateUIAfterCartChange(item, cartViewItemCountValue, data);
-        }
-    });
-
-    // Кнопка ЗБІЛЬШИТИ
-    const cartViewItemCountInc = document.createElement('div');
-    cartViewItemCountInc.classList.add('increase-count');
-    cartViewItemCountInc.textContent = "+";
-    cartViewItemCountInc.addEventListener('click', () => {
-        if (renderItem.availableCount > 0) {
-            item.count++;
-            renderItem.availableCount--; // Забираємо зі складу
-            updateUIAfterCartChange(item, cartViewItemCountValue, data);
-        } else {
-            alert("Limit reached!");
-        }
-    });
-
-    const updateUIAfterCartChange = (item, countNode, data) => {
-        countNode.textContent = item.count;
-        updateItemAvailabeCount(item.id, renderItem.availableCount);
-        setTotalPrice();
-        updateCartBadge();
-        saveToLocalStorage(data);
-        
-        // Оновлення ціни для конкретного рядка
-        cartViewItemTotalItemPrice.textContent = (item.count * item.price).toFixed(2);
-    };
-
-    cartViewItemCount.append(cartViewItemCountDec, cartViewItemCountValue, cartViewItemCountInc);
-
-    const cartViewItemTotalItemPrice = document.createElement('div');
-    cartViewItemTotalItemPrice.classList.add("total-item-price");
-    cartViewItemTotalItemPrice.textContent = (item.count * item.price).toFixed(2);
-
-    const cartViewItemRemoveItem = document.createElement('div');
-    cartViewItemRemoveItem.classList.add('remove-item');
-    const cartViewItemRemoveImg = document.createElement('img');
-    cartViewItemRemoveImg.src = "./imgs/delete.png";
-    cartViewItemRemoveImg.addEventListener('click', () => {
-        renderItem.availableCount += item.count; // Повертаємо все на склад
-        cart.splice(cart.indexOf(item), 1);
-        updateItemAvailabeCount(item.id, renderItem.availableCount);
-        cartViewItem.remove();
-        setTotalPrice();
-        updateCartBadge();
-        saveToLocalStorage(data);
-    });
-    cartViewItemRemoveItem.appendChild(cartViewItemRemoveImg);
-
-    cartViewItem.append(cartViewItemImage, cartViewItemName, cartViewItemPrice, cartViewItemCount, cartViewItemTotalItemPrice, cartViewItemRemoveItem);
-    return cartViewItem;
-};
-
-// Оновлений DOMContentLoaded для підтримки відновлення даних
-document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('./electronic_items_dataset.json');
-    let data = await response.json();
-
-    // Відновлюємо кількість на складі з LocalStorage, якщо вона там є
-    const savedInventory = localStorage.getItem('inventory');
-    if (savedInventory) {
-        const inventoryData = JSON.parse(savedInventory);
-        data.forEach(item => {
-            const saved = inventoryData.find(i => i.id === item.id);
-            if (saved) item.availableCount = saved.availableCount;
-        });
+    const add = document.createElement('div')
+    add.classList.add('item-add')
+    add.textContent = `Add to cart`
+    
+    // Якщо товару 0 при створенні - блокуємо кнопку
+    if (item.availableCount === 0) {
+        add.classList.add('disabled');
     }
 
-    const itemsContainer = document.querySelector('.items');
+    add.addEventListener('click', () => {
+        if (item.availableCount == 0) {
+            return;
+        }
+
+        addCart(item)
+
+        item.availableCount -= 1
+        availableCount.textContent = `Count: ${item.availableCount}`
+
+        if (item.availableCount == 0) {
+            add.classList.add('disabled')
+        }
+    })
+
+    bottom.append(rating)
+    bottom.append(availableCount)
+    bottom.append(price)
+    bottom.append(add)
+
+    div.appendChild(image)
+    div.appendChild(title)
+    div.appendChild(description)
+    div.appendChild(bottom)
+
+    return div
+}
+
+const setCategoryValues = (data) => {
+    const allCategories = data.map(el => el.category)
+    const uniqueCategories = [...new Set(allCategories)]
+
+    const categoryNode = document.querySelector('.category select')
+
+    uniqueCategories.forEach(category => {
+        const option = document.createElement('option')
+        option.textContent = category
+        option.value = category
+        categoryNode.appendChild(option)
+    })
+}
+
+const setExtraFunctions = (data) => {
+    const allExtraFunctions = data.flatMap(el => el.extraFunctions)
+    const uniqueExtraFunctions = [...new Set(allExtraFunctions)]
+
+    const container = document.querySelector('.extra-functions-container')
+
+    uniqueExtraFunctions.forEach(extra => {
+        const label = document.createElement('label')
+        const span = document.createElement('span')
+        span.textContent = extra;
+
+        const input = document.createElement('input')
+        input.type = 'checkbox'
+        input.setAttribute('data', extra)
+
+        label.appendChild(input)
+        label.appendChild(span)
+
+        container.appendChild(label)
+    })
+}
+
+const getAllSelectedExtraFunctions = () => {
+    const selectedCheckbox = document.querySelectorAll(
+        '.extra-functions-container input[type="checkbox"]:checked'
+    )
+    const extraFunctions = []
+    selectedCheckbox.forEach(checkbox => {
+        extraFunctions.push(
+            checkbox.getAttribute('data')
+        )
+    })
+    return extraFunctions
+}
+
+const filterItems = (data, params) => {
+    const {
+        searchText,
+        priceMin,
+        priceMax,
+        category,
+        rating,
+        extraFunctions
+    } = params;
+
     data.forEach(el => {
-        itemsContainer.appendChild(createItem(el));
-    });
+        const item = document.querySelector(`.item[item-id="${el.id}"]`);
+        
+        // 1. Пошук по тексту
+        if (searchText.length) {
+            const isTextInName = el.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+            const isTextInShorDescription = el.shortDescription.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+            if (!isTextInName && !isTextInShorDescription) {
+                item.classList.add('hide');
+                return;
+            }
+        }
 
-    setCategoryValues(data);
-    setExtraFunctions(data);
-    setupFilters(data);
-    updateCartBadge();
+        // 2. Фільтр ціни
+        if (priceMin >= 0 && el.price < priceMin) {
+            item.classList.add('hide');
+            return;
+        }
 
-    // Додайте слухачі для категорій та рейтингу у вашу функцію setupFilters
-    document.querySelector('.category select').addEventListener('change', (e) => {
-        filterItems(data, { 
-            category: e.target.value,
-            searchText: document.querySelector('#search-input').value,
-            priceMin: parseInt(document.querySelector('#price-min').value) || 0,
-            priceMax: parseInt(document.querySelector('#price-max').value) || Infinity,
-            rating: parseFloat(document.querySelector('#rating-input')?.value) || 0,
+        if (priceMax >= 0 && el.price > priceMax) {
+            item.classList.add('hide');
+            return;
+        }
+
+        // 3. Фільтр категорії (Task 1)
+        if (category && category !== 'all' && el.category !== category) {
+            item.classList.add('hide');
+            return;
+        }
+
+        // 4. Фільтр рейтингу (Task 2)
+        if (rating && el.rating < rating) {
+            item.classList.add('hide');
+            return;
+        }
+
+        // 5. Екстра функції
+        if (extraFunctions && extraFunctions.length) {
+            const result = extraFunctions.every(extra => el.extraFunctions.includes(extra))
+            if (!result) {
+                item.classList.add('hide');
+                return;
+            }
+        }
+
+        item.classList.remove('hide');
+    })
+}
+
+const setupFilters = (data) => {
+    const searchInput = document.querySelector('#search-input')
+    const priceMinInput = document.querySelector('#price-min')
+    const priceMaxInput = document.querySelector('#price-max')
+    const categorySelect = document.querySelector('.category select') // Task 1
+
+    const getFilterParams = () => {
+        // Отримуємо рейтинг (Task 2)
+        const selectedRatingInput = document.querySelector('input[name="rating-selector"]:checked');
+        const ratingValue = selectedRatingInput ? parseInt(selectedRatingInput.value) : 0;
+
+        return {
+            searchText: searchInput.value.trim(),
+            priceMin: parseInt(priceMinInput.value),
+            priceMax: parseInt(priceMaxInput.value),
+            category: categorySelect.value, 
+            rating: ratingValue,
             extraFunctions: getAllSelectedExtraFunctions()
-        });
+        };
+    };
+
+    const applyFilters = () => {
+        filterItems(data, getFilterParams());
+    };
+
+    searchInput.addEventListener('keyup', applyFilters);
+    priceMinInput.addEventListener('keyup', applyFilters);
+    priceMaxInput.addEventListener('keyup', applyFilters);
+    
+    // Слухач для категорій (Task 1)
+    categorySelect.addEventListener('change', applyFilters);
+
+    // Слухач для рейтингу (Task 2)
+    document.querySelectorAll('input[name="rating-selector"]').forEach(radio => {
+        radio.addEventListener('change', applyFilters);
     });
 
-    document.querySelector('.loader').classList.add('hide');
-});
+    document.querySelectorAll('.extra-functions-container input[type="checkbox"]').forEach(checkboxInput => {
+        checkboxInput.addEventListener('change', applyFilters);
+    })
+}
+
+const updateItemAvailabeCount = (id, count) => {
+    const itemNode = document.querySelector(`.item[item-id="${id}"] .item-available-count`);
+    const addBtn = document.querySelector(`.item[item-id="${id}"] .item-add`);
+    
+    if(itemNode) {
+        itemNode.textContent = `Count: ${count}`;
+        
+        // Оновлюємо стан кнопки "Add to cart" в залежності від наявності
+        if (count === 0) {
+            addBtn.classList.add('disabled');
+        } else {
+            addBtn.classList.remove('disabled');
+        }
+    }
+}
+
+const createViewItem = (item, data) => {
+    const cartViewItem = document.createElement('div')
+    cartViewItem.classList.add('cart-view-item')
+
+    const cartViewItemImage = document.createElement('div')
+    cartViewItemImage.classList.add('image')
+    cartViewItemImage.style = `--bgImg: url('${item.imageUrl}')`
+
+    const cartViewItemName = document.createElement('div')
+    cartViewItemName.classList.add('name')
+    cartViewItemName.textContent = item.name
+
+    const cartViewItemPrice = document.createElement('div')
+    cartViewItemPrice.classList.add('price')
+    cartViewItemPrice.textContent = item.price
+
+    const cartViewItemCount = document.createElement('div')
+    cartViewItemCount.classList.add('count')
+    
+    // Кнопка мінус
+    const cartViewItemCountDec = document.createElement('div')
+    cartViewItemCountDec.classList.add('decrease-count')
+    cartViewItemCountDec.textContent = "-"
+    
+    const cartViewItemCountValue = document.createElement('div')
+    cartViewItemCountValue.classList.add('count-value')
+    cartViewItemCountValue.textContent = item.count
+    
+    // Кнопка плюс
+    const cartViewItemCountInc = document.createElement('div')
+    cartViewItemCountInc.classList.add('increase-count')
+    cartViewItemCountInc.textContent = "+"
+
+    const cartViewItemTotalItemPrice = document.createElement('div')
+    cartViewItemTotalItemPrice.classList.add("total-item-price")
+    cartViewItemTotalItemPrice.textContent = (item.count * item.price).toFixed(2)
+
+    // Task 3: Логіка зміни кількості
+    const originalItem = data.find(el => el.id === item.id);
+
+    cartViewItemCountInc.addEventListener('click', () => {
+        if (originalItem.availableCount > 0) {
+            item.count++;
+            originalItem.availableCount--;
+            
+            // Оновлюємо UI в корзині
+            cartViewItemCountValue.textContent = item.count;
+            cartViewItemTotalItemPrice.textContent = (item.count * item.price).toFixed(2);
+            
+            // Оновлюємо UI в основному списку
+            updateItemAvailabeCount(item.id, originalItem.availableCount);
+            
+            // Оновлюємо загальну суму та каунтер
+            setTotalPrice();
+            updateCartCounterUI();
+            saveCartToLS();
+        }
+    });
+
+    cartViewItemCountDec.addEventListener('click', () => {
+        if (item.count > 1) {
+            item.count--;
+            originalItem.availableCount++;
+            
+            // Оновлюємо UI в корзині
+            cartViewItemCountValue.textContent = item.count;
+            cartViewItemTotalItemPrice.textContent = (item.count * item.price).toFixed(2);
+            
+            // Оновлюємо UI в основному списку
+            updateItemAvailabeCount(item.id, originalItem.availableCount);
+            
+            // Оновлюємо загальну суму та каунтер
+            setTotalPrice();
+            updateCartCounterUI();
+            saveCartToLS();
+        }
+    });
+
+    cartViewItemCount.append(
+        cartViewItemCountDec,
+        cartViewItemCountValue,
+        cartViewItemCountInc
+    )
+
+    const cartViewItemRemoveItem = document.createElement('div')
+    cartViewItemRemoveItem.classList.add('remove-item')
+    const cartViewItemRemoveItemImg = document.createElement('img')
+    cartViewItemRemoveItemImg.src = "./imgs/delete.png"
+    
+    cartViewItemRemoveItemImg.addEventListener('click', () => {
+        const index = cart.findIndex(el => el.id === item.id)
+        
+        // Повертаємо кількість назад на склад
+        originalItem.availableCount += item.count;
+        updateItemAvailabeCount(item.id, originalItem.availableCount)
+
+        cart.splice(index, 1)
+        
+        setTotalPrice()
+        updateCartCounterUI();
+        saveCartToLS(); // Task 4: Зберігаємо видалення
+        
+        cartViewItem.remove()
+        
+        // Якщо корзина пуста, закриваємо
+        if(cart.length === 0) {
+            document.querySelector('.cart-view-wrapper').classList.add('hide');
+        }
+    })
+    
+    cartViewItemRemoveItem.appendChild(cartViewItemRemoveItemImg)
+
+    cartViewItem.append(
+        cartViewItemImage,
+        cartViewItemName,
+        cartViewItemPrice,
+        cartViewItemCount,
+        cartViewItemTotalItemPrice,
+        cartViewItemRemoveItem,
+    )
+    return cartViewItem
+}
+
+const setTotalPrice = () => {
+    let totalPrice = 0
+    for (const el of cart) {
+        totalPrice += el.count * el.price
+    }
+
+    document.querySelector('#total-price-value')
+        .textContent = totalPrice.toFixed(2)
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+    const response = await fetch('./electronic_items_dataset.json')
+    const data = await response.json()
+
+    // Task 4: Відновлення корзини з LocalStorage
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        const parsedCart = JSON.parse(savedCart);
+        
+        parsedCart.forEach(savedItem => {
+            // Знаходимо оригінальний товар в завантажених даних
+            const originalItem = data.find(el => el.id === savedItem.id);
+            if (originalItem) {
+                // Синхронізуємо залишки
+                originalItem.availableCount -= savedItem.count;
+                // Додаємо в поточну корзину
+                cart.push(savedItem);
+            }
+        });
+        updateCartCounterUI();
+    }
+
+    // Рендеримо товари (вже з оновленим availableCount)
+    const items = document.querySelector('.items')
+    data.forEach(el => {
+        const div = createItem(el)
+        items.appendChild(div)
+    })
+
+    setCategoryValues(data)
+    setExtraFunctions(data)
+    setupFilters(data)
+
+    const cartViewWrapper = document.querySelector('.cart-view-wrapper')
+    const cartViewList = document.querySelector('.cart-view-list')
+
+    const closeCart = () => {
+        cartViewWrapper.classList.add('hide')
+    }
+
+    const openCart = () => {
+        cartViewWrapper.classList.remove('hide')
+    }
+
+    document.querySelector('.blur')
+        .addEventListener('click', () => {
+            closeCart()
+        })
+
+    document.querySelector('#cart-view-close')
+        .addEventListener('click', () => {
+            closeCart()
+        })
+
+    document.querySelector('.cart > div')
+        .addEventListener('click', () => {
+            cartViewList.innerHTML = ''
+            
+            const cartViewItems = cart.map(item => {
+                return createViewItem(item, data)
+            })
+            cartViewList.append(...cartViewItems)
+
+            setTotalPrice()
+
+            openCart()
+        })
+
+    document.querySelector('.loader').classList.add('hide')
+})
