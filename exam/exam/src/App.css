@@ -87,3 +87,27 @@ header {
 .auth-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; }
 .auth-eye { position: absolute; right: 15px; top: 15px; color: #777; cursor: pointer; font-size: 16px; }
 .auth-btn-main { width: 100%; background: var(--blue); color: white; padding: 16px; border-radius: 10px; font-weight: 700; font-size: 16px; margin-top: 5px; }
+.conv-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: #f8f8f8;
+    margin-bottom: 2px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.conv-val {
+    color: #555;
+    font-weight: 400;
+}
+.color-tool-btn {
+    background: rgba(255,255,255,0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}

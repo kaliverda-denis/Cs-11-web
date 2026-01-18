@@ -4,8 +4,10 @@ import { getName, isDark, getRandomPalette, getDistributedPalette } from '../uti
 const Generator = () => {
     const [colors, setColors] = useState(['#00BFB2', '#1A5E63', '#028090', '#F0F3BD', '#C64191']);
     const [locked, setLocked] = useState([false, false, false, false, false]);
+    
+    // НОВЕ: Стан для сердечок (масив булевих значень)
+    const [liked, setLiked] = useState([false, false, false, false, false]);
 
-    // Генерація нових кольорів
     const generate = useCallback(() => {
         const currentCount = colors.length;
         const newPalette = getRandomPalette(currentCount);
@@ -15,7 +17,6 @@ const Generator = () => {
         );
     }, [colors.length, locked]);
 
-    // Обробка пробілу
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.code === 'Space') {
@@ -33,10 +34,18 @@ const Generator = () => {
         setLocked(newLocked);
     };
 
+    // НОВЕ: Функція для перемикання сердечка
+    const toggleLike = (index) => {
+        const newLiked = [...liked];
+        newLiked[index] = !newLiked[index];
+        setLiked(newLiked);
+    };
+
     const removeCol = (index) => {
         if (colors.length > 2) {
             setColors(colors.filter((_, i) => i !== index));
             setLocked(locked.filter((_, i) => i !== index));
+            setLiked(liked.filter((_, i) => i !== index)); // Видаляємо стан лайка теж
         }
     };
 
@@ -54,8 +63,12 @@ const Generator = () => {
         const newLocked = [...locked];
         newLocked.splice(index + 1, 0, false);
 
+        const newLiked = [...liked];
+        newLiked.splice(index + 1, 0, false); // Новий колір за замовчуванням без лайка
+
         setColors(newColors);
         setLocked(newLocked);
+        setLiked(newLiked);
     };
 
     return (
@@ -70,7 +83,13 @@ const Generator = () => {
                         <div className="col-tools">
                             <i className="fa-solid fa-xmark" onClick={() => removeCol(i)}></i>
                             <i className={`fa-solid fa-lock${locked[i] ? '' : '-open'}`} onClick={() => toggleLock(i)}></i>
-                            <i className="fa-regular fa-heart"></i>
+                            
+                            {/* ОНОВЛЕНО: Сердечко тепер змінює клас на fa-solid (зафарбоване) */}
+                            <i 
+                                className={`${liked[i] ? 'fa-solid' : 'fa-regular'} fa-heart`} 
+                                onClick={() => toggleLike(i)}
+                                style={{ cursor: 'pointer' }}
+                            ></i>
                         </div>
                         <div className="hex">{c.replace('#','')}</div>
                         <div style={{fontSize:'13px', opacity:0.7}}>{getName(c)}</div>
@@ -86,4 +105,5 @@ const Generator = () => {
         </div>
     );
 };
+
 export default Generator;

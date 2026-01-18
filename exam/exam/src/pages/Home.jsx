@@ -33,30 +33,48 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="intro-section">
-                <div className="intro-text">
-                    Coolors is the lightning-fast, ultra-intuitive color palette generator for designers, creators, and anyone seeking visual harmony. 
-                    Instantly generate beautiful palettes by hitting the spacebar, or explore millions of popular ones.
-                </div>
-                <div className="cotd-card">
-                    <div className="cotd-swatch"></div>
-                    <div>
-                        <div style={{fontSize:'12px', fontWeight:800, color:'#aaa', textTransform:'uppercase'}}>Color of the day</div>
-                        <div style={{fontSize:'20px', fontWeight:800}}>Midnight Violet</div>
-                        <div style={{fontSize:'13px', color:'#777', marginTop:'5px'}}>#301934</div>
-                    </div>
-                </div>
-            </section>
+               <section className="intro-section" style={{ marginBottom: '50px' }}>
+    <div className="intro-text">
+        Coolors is the lightning-fast, ultra-intuitive color palette generator for designers, creators, and anyone seeking visual harmony. 
+        Instantly generate beautiful palettes by hitting the spacebar, or explore millions of popular ones.
+    </div>
+    
+    <Link to="/color-of-the-day" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <div className="cotd-card" style={{ width: '350px', padding: '20px' }}>
+            <div className="cotd-swatch" style={{ background: '#301934', width: '60px', height: '60px' }}></div>
+            <div>
+                <div style={{ fontSize: '12px', fontWeight: 800, color: '#aaa', textTransform: 'uppercase', letterSpacing: '1px' }}>Color of the day</div>
+                <div style={{ fontSize: '22px', fontWeight: 800 }}>Midnight Violet</div>
+                <div style={{ fontSize: '14px', color: '#777', marginTop: '4px' }}>#301934</div>
+            </div>
+        </div>
+    </Link>
+</section>
+            
 
             <p style={{textAlign:'center', color:'#aaa', fontWeight:800, textTransform:'uppercase', marginBottom:'20px'}}>Our Tools, Loved by Millions</p>
             <div className="tools-grid">
-                <div className="tool-card c-1"><h3>Palette Generator</h3><p>Create beautiful color schemes in seconds with the worldwide loved palette tool.</p><div className="tool-link">Start the generator <i className="fa-solid fa-arrow-right"></i></div></div>
-                <div className="tool-card c-2"><h3>Explore Palettes</h3><p>Get inspired by thousands of beautiful color schemes. Search by colors, styles, topics.</p><div className="tool-link">Explore Palettes <i className="fa-solid fa-arrow-right"></i></div></div>
-                <div className="tool-card c-3"><h3>Image Picker</h3><p>Extract beautiful colors from your photos and turn them into palettes.</p><div className="tool-link">Launch image picker <i className="fa-solid fa-arrow-right"></i></div></div>
-                <div className="tool-card c-4"><h3>Contrast Checker</h3><p>Calculate the contrast ratio of text and background colors.</p><div className="tool-link">Check contrast <i className="fa-solid fa-arrow-right"></i></div></div>
-                <div className="tool-card c-5"><h3>Palette Visualizer</h3><p>Preview your colors on real designs to see how they look in context.</p><div className="tool-link">Visualize <i className="fa-solid fa-arrow-right"></i></div></div>
-                <div className="tool-card c-6"><h3>Color Picker</h3><p>Get useful color information like meaning, usage, variations.</p><div className="tool-link">Pick color <i className="fa-solid fa-arrow-right"></i></div></div>
-            </div>
+    {/* Існуючі 6 карток */}
+    <div className="tool-card c-1"><h3>Palette Generator</h3><p>Create beautiful color schemes in seconds with the worldwide loved palette tool.</p><div className="tool-link">Start the generator <i className="fa-solid fa-arrow-right"></i></div></div>
+    <div className="tool-card c-2"><h3>Explore Palettes</h3><p>Get inspired by thousands of beautiful color schemes. Search by colors, styles, topics.</p><div className="tool-link">Explore 10M+ Palettes <i className="fa-solid fa-arrow-right"></i></div></div>
+    <div className="tool-card c-3"><h3>Image Picker</h3><p>Extract beautiful colors from your photos and turn them into palettes.</p><div className="tool-link">Launch the image picker <i className="fa-solid fa-arrow-right"></i></div></div>
+    <div className="tool-card c-4"><h3>Contrast Checker</h3><p>Calculate the contrast ratio of text and background colors.</p><div className="tool-link">Check contrast <i className="fa-solid fa-arrow-right"></i></div></div>
+    <div className="tool-card c-5"><h3>Palette Visualizer</h3><p>Preview your colors on real designs to see how they look in context.</p><div className="tool-link">Visualize <i className="fa-solid fa-arrow-right"></i></div></div>
+    <div className="tool-card c-6"><h3>Color Picker</h3><p>Get useful color information like meaning, usage, variations.</p><div className="tool-link">Pick color <i className="fa-solid fa-arrow-right"></i></div></div>
+
+    {/* 7. ТАЙЛВІНД (Повертаємо) */}
+    <div className="tool-card c-7">
+        <h3>Tailwind Colors</h3>
+        <p>Preview Tailwind CSS colors on real designs to see how they look in context.</p>
+        <div className="tool-link">Get your tailwind colors <i className="fa-solid fa-arrow-right"></i></div>
+    </div>
+    {/* 9. COLOR BOT (Повертаємо) */}
+    <div className="tool-card c-8" style={{ background: '#e9fff0', color: '#3ea35b' }}>
+        <h3>Color Bot</h3>
+        <p>Chat with our AI-powered Color Bot, ask questions and get color suggestions.</p>
+        <div className="tool-link">Chat with color bot <i className="fa-solid fa-arrow-right"></i></div>
+    </div>
+</div>
 
             <div className="resources-title">More Useful Resources</div>
             <div className="res-grid">
