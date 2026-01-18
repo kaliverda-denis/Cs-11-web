@@ -9,7 +9,7 @@ const initialData = [
         rating: 5, 
         stock: 5, 
         isSale: true, 
-        imageUrl: "https://via.placeholder.com/300?text=Chair+2"
+        imageUrl: "./imgs/arne_jacobsen_egg_chair_blue_1_medium.avif"
     },
     { 
         id: 2, 
@@ -20,7 +20,7 @@ const initialData = [
         rating: 4, 
         stock: 3, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Chair+2"
+        imageUrl: "./imgs/attractive_round_chair_on_low_revolving_base_1_medium.avif"
     },
     { 
         id: 3, 
@@ -31,7 +31,7 @@ const initialData = [
         rating: 3, 
         stock: 2, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Chair+3"
+        imageUrl: "./imgs/avenue_six_roundabout_spring_green_1_medium.avif"
     },
     { 
         id: 4, 
@@ -42,7 +42,7 @@ const initialData = [
         rating: 5, 
         stock: 4, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Chair+4"
+        imageUrl: "./imgs/camilla_armchair_1_medium.avif"
     },
     { 
         id: 5, 
@@ -53,7 +53,7 @@ const initialData = [
         rating: 5, 
         stock: 1, 
         isSale: true, 
-        imageUrl: "https://via.placeholder.com/300?text=Chair+5"
+        imageUrl: "./imgs/le_corbusier_armchair_1_medium.avif"
     },
     { 
         id: 6, 
@@ -64,7 +64,7 @@ const initialData = [
         rating: 4, 
         stock: 6, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Chair+6"
+        imageUrl: "./imgs/le_corbusier_lc7_chair_furniture_1_medium.avif"
     },
     { 
         id: 7, 
@@ -75,7 +75,7 @@ const initialData = [
         rating: 5, 
         stock: 2, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Table+1"
+        imageUrl: "./imgs/mesa_modern_round_dining_table_1_medium.avif"
     },
     { 
         id: 8, 
@@ -86,7 +86,7 @@ const initialData = [
         rating: 4, 
         stock: 10, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Lamp+1"
+        imageUrl: "./imgs/miss_k_table_lamp_by_flos_1_medium.avif"
     },
     { 
         id: 9, 
@@ -97,7 +97,7 @@ const initialData = [
         rating: 3, 
         stock: 3, 
         isSale: true, 
-        imageUrl: "https://via.placeholder.com/300?text=Storage"
+        imageUrl: "./imgs/modern_contemporary_self_storage_1_medium.avif"
     },
     { 
         id: 10, 
@@ -108,7 +108,7 @@ const initialData = [
         rating: 5, 
         stock: 0, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Wiggle"
+        imageUrl: "./imgs/modern_design_cardboard_wiggle_1_medium.avif"
     },
     { 
         id: 11, 
@@ -119,7 +119,7 @@ const initialData = [
         rating: 5, 
         stock: 5, 
         isSale: false, 
-        imageUrl: "https://via.placeholder.com/300?text=Item+11"
+        imageUrl: "./imgs/new_added_item_11_1_medium.avif"
     },
     { 
         id: 12, 
@@ -130,7 +130,7 @@ const initialData = [
         rating: 4, 
         stock: 8, 
         isSale: true, 
-        imageUrl: "https://via.placeholder.com/300?text=Item+12"
+        imageUrl: "./imgs/new_added_item_12_1_medium.avif"
     }
 ];
 
