@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Auth = ({ type }) => {
     const isLogin = type === 'login';
+    
+    // Стан для видимості пароля (false - сховано, true - видно)
     const [showPass, setShowPass] = useState(false);
 
     return (
@@ -33,15 +35,16 @@ const Auth = ({ type }) => {
                         <input type="email" className="auth-input" placeholder="Email" />
                     </div>
                     
+                    {/* ГРУПА ПАРОЛЯ З ОКОМ */}
                     <div className="auth-input-group">
                         <input 
-                            type={showPass ? "text" : "password"} 
+                            type={showPass ? "text" : "password"} // Перемикаємо тип тут
                             className="auth-input" 
                             placeholder="Password" 
                         />
                         <i 
-                            className={`fa-regular ${showPass ? 'fa-eye-slash' : 'fa-eye'} auth-eye`}
-                            onClick={() => setShowPass(!showPass)}
+                            className={`fa-regular ${showPass ? 'fa-eye-slash' : 'fa-eye'} auth-eye`} // Змінюємо іконку
+                            onClick={() => setShowPass(!showPass)} // Перемикаємо стан при кліку
                         ></i>
                     </div>
 
@@ -61,4 +64,5 @@ const Auth = ({ type }) => {
         </div>
     );
 };
+
 export default Auth;
