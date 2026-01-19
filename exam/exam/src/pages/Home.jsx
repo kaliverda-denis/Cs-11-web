@@ -22,17 +22,6 @@ const Home = () => {
                     <div className="hp-col" style={{background:'#8FFFFF'}}></div>
                 </div>
             </section>
-            
-            <section className="trusted-section">
-                <div className="trusted-title">Trusted by 5+ million creative minds and top companies</div>
-                <div className="logos-grid">
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="apple"/>
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="netflix"/>
-                    <img className="company-logo" src="https://res.cloudinary.com/coolors/image/upload/v1757421886/media/idSXQnMw-Q.svg" alt="coolors"/>
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="google"/>
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Warner_Bros._Pictures_logo.svg" alt="wb"/>
-                </div>
-            </section>
             <LogosBar />
                <section className="intro-section" style={{ marginBottom: '50px' }}>
     <div className="intro-text">
