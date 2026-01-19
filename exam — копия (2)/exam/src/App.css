@@ -111,37 +111,3 @@ header {
     cursor: pointer;
     color: white;
 }
-.logos-section {
-    padding: 40px 0;
-    text-align: center;
-}
-
-.logos-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #999;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-.logos-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px; /* Відстань між логотипами */
-    opacity: 0.6; /* Робить їх злегка прозорими/сірими */
-}
-
-.logo-item {
-    height: 28px; /* Регулюй висоту логотипів тут */
-    width: auto;
-    filter: grayscale(100%); /* Робить всі логотипи чорно-білими */
-    transition: opacity 0.3s;
-}
-
-.logo-item:hover {
-    opacity: 1;
-    filter: grayscale(0%); /* При наведенні стає кольоровим (якщо хочеш) */
-}

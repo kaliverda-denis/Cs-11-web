@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogosBar from '../components/LogosBar';
 
 const Home = () => {
     return (
@@ -22,7 +21,7 @@ const Home = () => {
                     <div className="hp-col" style={{background:'#8FFFFF'}}></div>
                 </div>
             </section>
-            
+
             <section className="trusted-section">
                 <div className="trusted-title">Trusted by 5+ million creative minds and top companies</div>
                 <div className="logos-grid">
@@ -33,7 +32,7 @@ const Home = () => {
                     <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Warner_Bros._Pictures_logo.svg" alt="wb"/>
                 </div>
             </section>
-            <LogosBar />
+
                <section className="intro-section" style={{ marginBottom: '50px' }}>
     <div className="intro-text">
         Coolors is the lightning-fast, ultra-intuitive color palette generator for designers, creators, and anyone seeking visual harmony. 
