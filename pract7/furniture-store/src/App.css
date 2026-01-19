@@ -1,4 +1,3 @@
-/* src/App.css */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -177,7 +176,7 @@ header {
     cursor: not-allowed;
 }
 
-/* Стилі для модального вікна кошика */
+
 .modal-overlay {
     position: fixed;
     top: 0;

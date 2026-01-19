@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { initialData } from './data'; // Імпортуємо наш список товарів
+import { initialData } from './data'; 
 
 function App() {
-    // Стан товарів (зберігаємо в localStorage)
+
     const [products, setProducts] = useState(() => {
         const saved = localStorage.getItem('inventory_v3');
         return saved ? JSON.parse(saved) : initialData;
     });
 
-    // Стан кошика
+
     const [cart, setCart] = useState(() => {
         const saved = localStorage.getItem('cart_v3');
         return saved ? JSON.parse(saved) : [];
@@ -18,13 +18,13 @@ function App() {
     const [isCartOpen, setCartOpen] = useState(false);
     const [filterText, setFilterText] = useState("");
 
-    // Оновлення localStorage при змінах
+
     useEffect(() => {
         localStorage.setItem('inventory_v3', JSON.stringify(products));
         localStorage.setItem('cart_v3', JSON.stringify(cart));
     }, [products, cart]);
 
-    // Функція додавання в кошик
+
     const addToCart = (product) => {
         if (product.stock <= 0) return;
         
@@ -39,7 +39,6 @@ function App() {
         });
     };
 
-    // Оновлення кількості в кошику
     const updateQty = (id, delta) => {
         const product = products.find(p => p.id === id);
         if (delta > 0 && product.stock <= 0) return;
