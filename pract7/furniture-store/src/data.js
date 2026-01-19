@@ -1,5 +1,4 @@
 // src/data.js
-
 export const initialData = [
     { 
         id: 1, 
@@ -14,7 +13,7 @@ export const initialData = [
     },
     { 
         id: 2, 
-        name: "Attractive round chair on low revolving base", 
+        name: "Attractive round chair on low revolving", 
         category: "Chairs", 
         price: 60.00, 
         oldPrice: null, 
@@ -25,7 +24,7 @@ export const initialData = [
     },
     { 
         id: 3, 
-        name: "Avenue Six Roundabout Spring Green Low Furniture", 
+        name: "Avenue Six Roundabout Spring Green", 
         category: "Chairs", 
         price: 78.00, 
         oldPrice: null, 
@@ -91,7 +90,7 @@ export const initialData = [
     },
     { 
         id: 9, 
-        name: "Modern Contemporary Self Storage Furniture", 
+        name: "Modern Contemporary Self Storage", 
         category: "Tables", 
         price: 320.00, 
         oldPrice: 400.00, 
@@ -102,7 +101,7 @@ export const initialData = [
     },
     { 
         id: 10, 
-        name: "Modern Design Cardboard Wiggle Chair", 
+        name: "Modern Design Cardboard Wiggle", 
         category: "Chairs", 
         price: 265.00, 
         oldPrice: null, 
