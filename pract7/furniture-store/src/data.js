@@ -31,7 +31,7 @@ export const initialData = [
         rating: 3, 
         stock: 2, 
         isSale: false, 
-        imageUrl: "/img/avenue_six_roundabout_spring_green_1_medium.avif"
+        imageUrl: "/img/avenue_six_roundabout_spring_green_low_circle_lounger_1_medium.avif"
     },
     { 
         id: 4, 
@@ -97,7 +97,7 @@ export const initialData = [
         rating: 3, 
         stock: 3, 
         isSale: true, 
-        imageUrl: "/img/modern_contemporary_self_storage_1_medium.avif"
+        imageUrl: "/img/modern_contemporary_self_storage_furniture_hipster_by_zuo_modern_1_medium.avif"
     },
     { 
         id: 10, 
@@ -108,7 +108,7 @@ export const initialData = [
         rating: 5, 
         stock: 1, 
         isSale: false, 
-        imageUrl: "/img/modern_design_cardboard_wiggle_1_medium.avif"
+        imageUrl: "/img/modern_design_cardboard_wiggle_chair_1_medium.avif"
     },
     { 
         id: 11, 
