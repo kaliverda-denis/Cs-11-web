@@ -1,3 +1,5 @@
+// src/data.js
+
 export const initialData = [
     { 
         id: 1, 
@@ -12,7 +14,7 @@ export const initialData = [
     },
     { 
         id: 2, 
-        name: "Attractive round chair on low revolving", 
+        name: "Attractive round chair on low revolving base", 
         category: "Chairs", 
         price: 60.00, 
         oldPrice: null, 
@@ -23,7 +25,7 @@ export const initialData = [
     },
     { 
         id: 3, 
-        name: "Avenue Six Roundabout Spring Green", 
+        name: "Avenue Six Roundabout Spring Green Low Furniture", 
         category: "Chairs", 
         price: 78.00, 
         oldPrice: null, 
@@ -89,7 +91,7 @@ export const initialData = [
     },
     { 
         id: 9, 
-        name: "Modern Contemporary Self Storage", 
+        name: "Modern Contemporary Self Storage Furniture", 
         category: "Tables", 
         price: 320.00, 
         oldPrice: 400.00, 
@@ -100,13 +102,35 @@ export const initialData = [
     },
     { 
         id: 10, 
-        name: "Modern Design Cardboard Wiggle", 
+        name: "Modern Design Cardboard Wiggle Chair", 
         category: "Chairs", 
         price: 265.00, 
         oldPrice: null, 
         rating: 5, 
-        stock: 0, 
+        stock: 1, 
         isSale: false, 
         imageUrl: "/img/modern_design_cardboard_wiggle_1_medium.avif"
+    },
+    { 
+        id: 11, 
+        name: "Oksana Dining Table", 
+        category: "Tables", 
+        price: 199.00, 
+        oldPrice: null, 
+        rating: 4, 
+        stock: 3, 
+        isSale: false, 
+        imageUrl: "/img/oksana_dining_table.avif" 
+    },
+    { 
+        id: 12, 
+        name: "PK20 Easy Chair by Designer Poul Kjae...", 
+        category: "Chairs", 
+        price: 60.00, 
+        oldPrice: null, 
+        rating: 5, 
+        stock: 2, 
+        isSale: false, 
+        imageUrl: "/img/pk20_easy_chair.avif"
     }
 ];
