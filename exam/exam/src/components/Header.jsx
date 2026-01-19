@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
     const location = useLocation();
-    // Ховаємо хедер на сторінках входу
     if (['/login', '/registration'].includes(location.pathname)) return null;
 
     return (

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ColorDetail = () => {
-    // Стиль для рядків таблиці, щоб не було помилок з alignItems
     const rowStyle = {
         display: 'flex',
         justifyContent: 'space-between',
@@ -14,7 +13,7 @@ const ColorDetail = () => {
 
     return (
         <div className="container" style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-            {/* Навігація */}
+
             <div style={{ fontSize: '13px', color: '#888', marginBottom: '30px' }}>
                 Colors <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', margin: '0 10px' }}></i> 
                 <span style={{ color: '#000', fontWeight: 'bold' }}>Midnight Violet</span>
@@ -28,7 +27,8 @@ const ColorDetail = () => {
                     </p>
                 </div>
                 
-                {/* Рекламна плашка як на скріні */}
+
+
                 <div style={{ border: '1px solid #eee', padding: '20px', borderRadius: '12px', width: '240px', textAlign: 'left' }}>
                     <div style={{ fontWeight: 'bold', fontSize: '14px' }}>Envato</div>
                     <div style={{ color: '#444', margin: '8px 0', fontSize: '12px', lineHeight: '1.4' }}>
@@ -38,7 +38,7 @@ const ColorDetail = () => {
                 </div>
             </div>
 
-            {/* Великий блок з HEX */}
+
             <div style={{ 
                 background: '#301934', 
                 height: '400px', 
@@ -52,7 +52,7 @@ const ColorDetail = () => {
             }}>
                 <div style={{ fontSize: '100px', fontWeight: 800, color: 'rgba(255,255,255,0.15)' }}>301934</div>
                 
-                {/* Кнопки в кутку */}
+
                 <div style={{ position: 'absolute', top: '25px', right: '25px', display: 'flex', gap: '10px' }}>
                     <div className="color-tool-btn"><i className="fa-solid fa-pencil"></i></div>
                     <div className="color-tool-btn"><i className="fa-solid fa-expand"></i></div>
@@ -66,7 +66,7 @@ const ColorDetail = () => {
                 </div>
             </div>
 
-            {/* Конвертація */}
+
             <h2 style={{ fontSize: '36px', fontWeight: 900, marginTop: '80px', marginBottom: '40px', textAlign: 'left' }}>Conversion</h2>
             
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 60px' }}>
