@@ -64,7 +64,7 @@ const Generator = () => {
         newLocked.splice(index + 1, 0, false);
 
         const newLiked = [...liked];
-        newLiked.splice(index + 1, 0, false);
+        newLiked.splice(index + 1, 0, false); 
 
         setColors(newColors);
         setLocked(newLocked);
@@ -83,6 +83,8 @@ const Generator = () => {
                         <div className="col-tools">
                             <i className="fa-solid fa-xmark" onClick={() => removeCol(i)}></i>
                             <i className={`fa-solid fa-lock${locked[i] ? '' : '-open'}`} onClick={() => toggleLock(i)}></i>
+                            
+
                             <i 
                                 className={`${liked[i] ? 'fa-solid' : 'fa-regular'} fa-heart`} 
                                 onClick={() => toggleLike(i)}

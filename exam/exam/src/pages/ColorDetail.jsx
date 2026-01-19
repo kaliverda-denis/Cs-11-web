@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ColorDetail = () => {
+
     const rowStyle = {
         display: 'flex',
         justifyContent: 'space-between',
@@ -27,7 +28,6 @@ const ColorDetail = () => {
                     </p>
                 </div>
                 
-
 
                 <div style={{ border: '1px solid #eee', padding: '20px', borderRadius: '12px', width: '240px', textAlign: 'left' }}>
                     <div style={{ fontWeight: 'bold', fontSize: '14px' }}>Envato</div>

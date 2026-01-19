@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import bg from '\src\assets\bg.png';
+
 const Auth = ({ type }) => {
+
     const isLogin = type === 'login';
+    
+
     const [showPass, setShowPass] = useState(false);
+
 
     const toggleVisibility = () => {
         setShowPass(!showPass);
@@ -49,6 +53,7 @@ const Auth = ({ type }) => {
                                 placeholder="Password" 
                                 autoComplete="current-password"
                             />
+                            {/* ІКОНКА ОКА */}
                             <i 
                                 className={`fa-regular ${showPass ? 'fa-eye-slash' : 'fa-eye'} auth-eye`} 
                                 onClick={toggleVisibility}
@@ -65,26 +70,14 @@ const Auth = ({ type }) => {
                         {isLogin ? "Don't have an account?" : "Already have an account?"} 
                         <Link 
                             to={isLogin ? '/registration' : '/login'} 
-                            style={{ color: '#0066ff', fontWeight: 700, marginLeft: '5px' }}
+                            style={{ color: 'var(--blue)', fontWeight: 700, marginLeft: '5px' }}
                         >
                             {isLogin ? 'Sign up' : 'Log in'}
                         </Link>
                     </p>
                 </div>
             </div>
-
-            {/* ПРАВА ЧАСТИНА - ТУТ БУЛА ПОМИЛКА В ДУЖКАХ */}
-            <div className="auth-visual" style={{ overflow: 'hidden' }}>
-                <img 
-                    src={bg} 
-                    alt="Background" 
-                    style={{ 
-                        width: '100%', 
-                        height: '100%', 
-                        objectFit: 'cover' 
-                    }} 
-                />
-            </div>
+            <div className="auth-visual"></div>
         </div>
     );
 };
