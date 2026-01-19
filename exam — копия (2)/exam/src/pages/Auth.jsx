@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Auth = ({ type }) => {
-    // Визначаємо, ми на сторінці логіну чи реєстрації
+
     const isLogin = type === 'login';
     
-    // Стан для показу пароля
+
     const [showPass, setShowPass] = useState(false);
 
-    // Функція для зміни видимості
+
     const toggleVisibility = () => {
         setShowPass(!showPass);
     };

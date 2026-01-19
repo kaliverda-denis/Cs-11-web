@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import LogosBar from '../components/LogosBar';
 const Home = () => {
     return (
         <div className="container">
@@ -22,16 +22,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="trusted-section">
-                <div className="trusted-title">Trusted by 5+ million creative minds and top companies</div>
-                <div className="logos-grid">
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="apple"/>
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="netflix"/>
-                    <img className="company-logo" src="https://res.cloudinary.com/coolors/image/upload/v1757421886/media/idSXQnMw-Q.svg" alt="coolors"/>
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="google"/>
-                    <img className="company-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Warner_Bros._Pictures_logo.svg" alt="wb"/>
-                </div>
-            </section>
+            <LogosBar />
 
                <section className="intro-section" style={{ marginBottom: '50px' }}>
     <div className="intro-text">
@@ -54,7 +45,7 @@ const Home = () => {
 
             <p style={{textAlign:'center', color:'#aaa', fontWeight:800, textTransform:'uppercase', marginBottom:'20px'}}>Our Tools, Loved by Millions</p>
             <div className="tools-grid">
-    {/* Існуючі 6 карток */}
+
     <div className="tool-card c-1"><h3>Palette Generator</h3><p>Create beautiful color schemes in seconds with the worldwide loved palette tool.</p><div className="tool-link">Start the generator <i className="fa-solid fa-arrow-right"></i></div></div>
     <div className="tool-card c-2"><h3>Explore Palettes</h3><p>Get inspired by thousands of beautiful color schemes. Search by colors, styles, topics.</p><div className="tool-link">Explore 10M+ Palettes <i className="fa-solid fa-arrow-right"></i></div></div>
     <div className="tool-card c-3"><h3>Image Picker</h3><p>Extract beautiful colors from your photos and turn them into palettes.</p><div className="tool-link">Launch the image picker <i className="fa-solid fa-arrow-right"></i></div></div>
@@ -62,13 +53,13 @@ const Home = () => {
     <div className="tool-card c-5"><h3>Palette Visualizer</h3><p>Preview your colors on real designs to see how they look in context.</p><div className="tool-link">Visualize <i className="fa-solid fa-arrow-right"></i></div></div>
     <div className="tool-card c-6"><h3>Color Picker</h3><p>Get useful color information like meaning, usage, variations.</p><div className="tool-link">Pick color <i className="fa-solid fa-arrow-right"></i></div></div>
 
-    {/* 7. ТАЙЛВІНД (Повертаємо) */}
+
     <div className="tool-card c-7">
         <h3>Tailwind Colors</h3>
         <p>Preview Tailwind CSS colors on real designs to see how they look in context.</p>
         <div className="tool-link">Get your tailwind colors <i className="fa-solid fa-arrow-right"></i></div>
     </div>
-    {/* 9. COLOR BOT (Повертаємо) */}
+
     <div className="tool-card c-8" style={{ background: '#e9fff0', color: '#3ea35b' }}>
         <h3>Color Bot</h3>
         <p>Chat with our AI-powered Color Bot, ask questions and get color suggestions.</p>
