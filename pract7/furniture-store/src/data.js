@@ -1,5 +1,3 @@
-// src/data.js
-
 export const initialData = [
     { 
         id: 1, 
@@ -110,27 +108,5 @@ export const initialData = [
         stock: 0, 
         isSale: false, 
         imageUrl: "/img/modern_design_cardboard_wiggle_1_medium.avif"
-    },
-    { 
-        id: 11, 
-        name: "New Added Item Number 11", 
-        category: "Chairs", 
-        price: 150.00, 
-        oldPrice: null, 
-        rating: 5, 
-        stock: 5, 
-        isSale: false, 
-        imageUrl: "/img/new_added_item_11_1_medium.avif"
-    },
-    { 
-        id: 12, 
-        name: "New Added Item Number 12", 
-        category: "Lamps", 
-        price: 99.00, 
-        oldPrice: 120.00, 
-        rating: 4, 
-        stock: 8, 
-        isSale: true, 
-        imageUrl: "/img/new_added_item_12_1_medium.avif"
     }
 ];
