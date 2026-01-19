@@ -119,7 +119,7 @@ export const initialData = [
         rating: 4, 
         stock: 3, 
         isSale: false, 
-        imageUrl: "/img/oksana_dining_table.avif" 
+        imageUrl: "/img/oksana_dining_table_1_medium.avif" 
     },
     { 
         id: 12, 
@@ -130,6 +130,6 @@ export const initialData = [
         rating: 5, 
         stock: 2, 
         isSale: false, 
-        imageUrl: "/img/pk20_easy_chair.avif"
+        imageUrl: "/img/pk20_easy_chair_by_designer_poul_kjaerholm_for_fritz_hansen_1_medium.avif"
     }
 ];
